@@ -1,11 +1,59 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contactenos</title>
+    <link rel="stylesheet" href="./css/styles.css">
 </head>
-<body>
+<body class="gradient">
+    <button class="card" onclick="window.location.href='index.html'"> <-- Regresar</button>
+    <h1>Contactenos</h1>
+    <form id="contact" class="card">
+        <div class="form-group">
+            <label for="nombre">Nombre:</label>
+            <input type="text" id="nombre" name="nombre">
+        </div>
+    
+        <div class="form-group">
+            <label for="apellido">Apellido:</label>
+            <input type="text" id="apellido" name="apellido">
+        </div>
+    
+        <div class="form-group">
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email">
+        </div>
+    
+        <div class="form-group">
+            <label for="mensaje">Mensaje:</label>
+            <textarea id="mensaje" name="mensaje"></textarea>
+        </div>
+    
+        <input type="submit" value="Enviar">
+    </form>
+    
+
     
 </body>
 </html>
+
+<script>
+    document.getElementById("contact").addEventListener("submit", function(event) {
+        event.preventDefault();
+        //Seteando variables obtenidas del formulario
+        let nombre = document.getElementById("nombre").value;
+        let apellido = document.getElementById("apellido").value;
+        let email = document.getElementById("email").value;
+        let mensaje = document.getElementById("mensaje").value;
+        //Configurando mensaje
+        let confirmacion = prompt(`Datos ingresados:\n\nNombre: ${nombre}\nApellido: ${apellido}\nEmail: ${email}\nMensaje: ${mensaje}\n\nPresiona OK para enviar.`);
+
+        //Configurando valores para devolver a la ventana principal
+        if (confirmacion !== null) {
+            setTimeout(() => {
+                window.location.href = "index.html";
+            }, 1000);
+        }
+    });
+</script>
